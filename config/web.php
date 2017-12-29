@@ -2,6 +2,7 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$log = require __DIR__ . '/log.php';
 
 $config = [
     'id' => 'basic',
@@ -11,6 +12,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'language' => 'es-ES',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -32,16 +34,19 @@ $config = [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
-        ],
-        'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
+            /*
+            // comment the following array to send mail using php's mail function:
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => $params['smtpUsername'],
+                'password' => getenv('SMTP_PASS'),
+                'port' => '587',
+                'encryption' => 'tls',
             ],
+            */
         ],
+        'log' => $log,
         'db' => $db,
         /*
         'urlManager' => [
