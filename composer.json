@@ -23,7 +23,7 @@
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
-        "yiisoft/yii2-gii": "~2.0.0",
+        "yiisoft/yii2-gii": "dev-master#51e58d7",
         "yiisoft/yii2-faker": "~2.0.0",
         "yiisoft/yii2-shell": "dev-master",
         "yiisoft/yii2-apidoc": "dev-master",
