@@ -48,6 +48,9 @@ $config = [
         ],
         'log' => $log,
         'db' => $db,
+        'formatter' => [
+            'timeZone' => 'Europe/Madrid',
+        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
