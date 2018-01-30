@@ -24,12 +24,12 @@ if ($issues) {
 }
 
 echo "Leyendo archivo requisitos.xslx...\n";
-PHPExcel_Settings::setLocale('es');
-$objPHPExcel = PHPExcel_IOFactory::load("requisitos.xlsx");
+\PhpOffice\PhpSpreadsheet\Settings::setLocale('es');
+$objPHPExcel = \PhpOffice\PhpSpreadsheet\IOFactory::load("requisitos.xlsx");
 $objWorksheet = $objPHPExcel->getSheet(0);
 $highestRow = $objWorksheet->getHighestDataRow(); // e.g. 10
 $highestColumn = $objWorksheet->getHighestDataColumn(); // e.g 'F'
-$highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn); // e.g. 5
+$highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn); // e.g. 5
 $requisitos = "\n# Catálogo de requisitos\n\n";
 $resumen = "\n## Cuadro resumen\n\n"
          . '| **Requisito** | **Prioridad** | **Tipo** | **Complejidad** | **Entrega** |'
@@ -104,6 +104,6 @@ file_put_contents('requisitos.md', $requisitos . $resumen, LOCK_EX);
 
 if ($issues) {
     echo "Actualizando archivo requisitos.xlsx...\n";
-    $writer = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+    $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($objPHPExcel, 'Xlsx');
     $writer->save('requisitos.xlsx');
 }
