@@ -2,7 +2,7 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: http://localhost:8080/
+            url: http://localhost:8088/
             browser: chrome
             port: 9515   # Quitar esta línea si se usa Selenium
             window_size: false

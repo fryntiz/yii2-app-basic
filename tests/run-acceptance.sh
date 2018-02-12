@@ -1,13 +1,14 @@
 #!/bin/sh
 
 BASE_DIR=$(dirname $(readlink -f "$0"))
+PORT=8088
 
 if [ -f $BASE_DIR/acceptance.suite.yml ]
 then
-    if fuser -n tcp 8080 > /dev/null 2>&1
+    if fuser -n tcp $PORT > /dev/null 2>&1
     then
-        echo "Matando los procesos en los puertos 8080 y 9515..."
-        fuser -k -n tcp 8080
+        echo "Matando los procesos en los puertos $PORT y 9515..."
+        fuser -k -n tcp $PORT
         fuser -k -n tcp 9515
     fi
     if [ "$1" != "-d" ]
@@ -17,9 +18,9 @@ then
         echo "Ejecutando tests/bin/yii serve ..."
         if [ "$1" = "-v" ]
         then
-            $BASE_DIR/bin/yii serve &
+            $BASE_DIR/bin/yii serve --port=$PORT &
         else
-            $BASE_DIR/bin/yii serve > /dev/null 2>&1 &
+            $BASE_DIR/bin/yii serve --port=$PORT > /dev/null 2>&1 &
         fi
     fi
 fi
