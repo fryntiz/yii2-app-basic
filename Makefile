@@ -35,11 +35,8 @@ api:
 guide guia:
 	guia/publish-docs.sh -g
 
-.ONESHELL:
 serve:
-	@#
-	[ -f .env ] && export $$(cat .env)
-	./yii serve
+	@[ -f .env ] && export $$(cat .env) ; ./yii serve
 
 install:
 	composer install
