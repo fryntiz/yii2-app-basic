@@ -23,7 +23,6 @@ install:
 
 before_script:
     - db/create.sh travis
-    - db/load.sh test
     - tests/download-chromedriver.sh
     - tests/run-acceptance.sh
     - sleep 3

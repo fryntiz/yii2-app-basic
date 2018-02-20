@@ -8,7 +8,6 @@ test tests: codecept phpcs
 codecept: pre_codecept run_codecept post_codecept
 
 pre_codecept:
-	db/load.sh test
 	tests/run-acceptance.sh
 
 post_codecept:
