@@ -1,8 +1,6 @@
 
 # Catálogo de requisitos
 
-**(Usar el generado durante la propuesta.)**
-
 | **R01**     | **sdfsdfsdfsdfs**           |
 | --------------: | :------------------- |
 | **Descripción** | skdjfksjf skjf hskjfh kjsdh fkjs hkjh fdjksh fkjsdh fkjs dfkjs dfkj sjkd fsjk fkjs fkjs fkjs fjks fjks hfkjs fjks hfjks hfjks hfjks hfjk sfjks fjks hfjks hjkf hsjkfs jk             |
@@ -11,8 +9,6 @@
 | **Complejidad** | Fácil         |
 | **Entrega**     | v1             |
 
-
-[]()
 
 | **R02**     | **kdldjflgdfg**           |
 | --------------: | :------------------- |
@@ -23,8 +19,6 @@
 | **Entrega**     | v2             |
 
 
-[]()
-
 | **R03**     | **sdfsfd**           |
 | --------------: | :------------------- |
 | **Descripción** | lkcvlkjxcjklcxljkwejlksdfvc             |
@@ -33,8 +27,6 @@
 | **Complejidad** | Fácil         |
 | **Entrega**     | v3             |
 
-
-[]()
 
 | **R04**     | **sfsfsfd**           |
 | --------------: | :------------------- |
@@ -45,8 +37,6 @@
 | **Entrega**     | v3             |
 
 
-[]()
-
 | **R05**     | **xcvxcv**           |
 | --------------: | :------------------- |
 | **Descripción** | sdkfjklsdfjldksf - sdlkfjlksdjfldksjflksjfdss - slkdjflksjflksjflksjkljfksldjfldks sldkjflskdjfdlskjflksdjflkdsjflkjslkfjslkjfdlskjflsjklfdjslkjlskjdflks klsdjfkljsdlkfjskldf sdklfjklsdjfklsdjflksdjfklsdjkl lñklllllllllllllllllllllllqweqweqweqew             |
@@ -55,8 +45,6 @@
 | **Complejidad** | Difícil         |
 | **Entrega**     | v3             |
 
-
-[]()
 
 
 ## Cuadro resumen

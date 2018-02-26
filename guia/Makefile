@@ -1,9 +1,6 @@
-.PHONY: all check setup req
+.PHONY: all check req
 
 all: check req
-
-setup:
-	./check-label.sh
 
 check:
 	./check-ghi.sh

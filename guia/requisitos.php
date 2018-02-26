@@ -23,7 +23,7 @@ if ($issues) {
     }
 }
 
-echo "Leyendo archivo requisitos.xslx...\n";
+echo "Leyendo archivo requisitos.xlsx...\n";
 \PhpOffice\PhpSpreadsheet\Settings::setLocale('es');
 $objPHPExcel = \PhpOffice\PhpSpreadsheet\IOFactory::load("requisitos.xlsx");
 $objWorksheet = $objPHPExcel->getSheet(0);
@@ -50,6 +50,12 @@ if ($issues) {
 }
 
 for ($row = 2; $row <= $highestRow; $row++) {
+    if (($row - 1) % 10 === 0) {
+        echo "Deteniendo la ejecución por 10 segundos para evitar exceso de tasa...";
+        sleep(10);
+        echo "\n";
+    }
+    echo '(' . ($row - 1) . '/' . ($highestRow - 1) . ') ';
     $codigo      = $objWorksheet->getCell("A$row")->getValue();
     $corta       = $objWorksheet->getCell("B$row")->getValue();
     $larga       = $objWorksheet->getCell("C$row")->getValue();
@@ -67,14 +73,32 @@ for ($row = 2; $row <= $highestRow; $row++) {
             $tipoGhi = mb_strtolower($tipo);
             $complejidadGhi = mb_strtolower($complejidad);
             $entregaGhi = mb_substr($entrega, 1, 1);
+            $comando = "ghi open -m \"$mensaje\" --claim";
+            if (!empty($prioridadGhi)
+                && in_array($prioridadGhi, ['mínimo', 'importante', 'opcional'])) {
+                $comando .= " -L $prioridadGhi";
+            }
+            if (!empty($tipoGhi)
+                && in_array($tipoGhi, ['funcional', 'técnico', 'información'])) {
+                $comando .= " -L $tipoGhi";
+            }
+            if (!empty($complejidadGhi)
+                && in_array($complejidadGhi, ['fácil', 'media', 'difícil'])) {
+                $comando .= " -L $complejidadGhi";
+            }
+            if (!empty($entregaGhi)
+                && in_array($entregaGhi, ['1', '2', '3'])) {
+                $comando .= " -M $entregaGhi";
+            }
             echo "Generando incidencia para $codigo en GitHub...";
-            $salida = `ghi open -m "$mensaje" --claim -L $prioridadGhi -L $tipoGhi -L $complejidadGhi -M $entregaGhi`;
+            $salida = `$comando`;
             $matches = [];
             if (preg_match('/^#([0-9]+):/', $salida, $matches) === 1) {
                 $incidencia = $matches[1];
+                $link = "https://github.com/$repo/issues/$incidencia";
                 $objWorksheet->setCellValue("H$row", $incidencia);
                 $objWorksheet->getCell("H$row")->getHyperlink()->setUrl($link);
-                echo "#$incidencia\n";
+                echo " #$incidencia\n";
             } else {
                 echo "\nError: no se ha podido crear la incidencia en GitHub.\n";
                 $link = '';
