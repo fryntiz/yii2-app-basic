@@ -18,7 +18,6 @@ guide()
         --interactive=0 --template="project"
     ln -sf README.html docs/index.html
     rm docs/README-api.html
-    cp -r guia/img docs
 }
 
 ACTUAL=$PWD
