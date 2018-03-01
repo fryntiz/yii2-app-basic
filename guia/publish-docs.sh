@@ -16,7 +16,8 @@ guide()
     vendor/bin/apidoc guide guia docs \
         --pageTitle="Guía del proyecto" --guidePrefix= --apiDocs=./api \
         --interactive=0 --template="project"
-    ln -sf README.html docs/index.html
+    mv docs/README.html docs/index.html
+    ln -sf index.html docs/README.html
     rm docs/README-api.html
 }
 
