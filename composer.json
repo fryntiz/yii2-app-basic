@@ -49,7 +49,7 @@
         ],
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject",
-            "[ -f setup.sh ] && ./setup.sh || true",
+            "[[ -f setup.sh ]] && ./setup.sh || true",
             "yii\\composer\\Installer::postInstall"
         ]
     },
@@ -58,7 +58,13 @@
             "setPermission": [
                 {
                     "runtime": "0777",
-                    "web/assets": "0777",
+                    "web/assets": "0775",
+                    "web/css": "0775",
+                    "web/images": "0775",
+                    "web/js": "0775",
+                    "web/tmp": "0775",
+                    "web/uploads": "0775",
+                    "web/.htaccess": "0500",
                     "yii": "0755"
                 }
             ]
@@ -73,6 +79,10 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ricpelo/yii2-apidoc"
         }
     ]
 }
