@@ -1,5 +1,5 @@
 {
-    "name": "yiisoft/yii2-app-basic",
+    "name": "fryntiz/yii2-app-basic",
     "description": "Yii 2 Basic Project Template",
     "keywords": ["yii2", "framework", "basic", "project template"],
     "homepage": "http://www.yiiframework.com/",
@@ -12,21 +12,30 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
-        "php": ">=5.4.0",
+        "php": "^7.0.0",
+        "ext-gd": "*",
+        "ext-intl": "*",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0"
+        "yiisoft/yii2-swiftmailer": "~2.1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
-        "yiisoft/yii2-gii": "~2.0.0",
+        "yiisoft/yii2-gii": "dev-master",
         "yiisoft/yii2-faker": "~2.0.0",
+        "yiisoft/yii2-shell": "dev-master",
+        "yiisoft/yii2-apidoc": "dev-master",
 
-        "codeception/base": "^2.2.3",
-        "codeception/verify": "~0.3.1",
-        "codeception/specify": "~0.4.3"
+        "codeception/codeception": "^2.2.3",
+        "codeception/verify": "~1.0.0",
+        "codeception/specify": "^0.4.0",
+        "squizlabs/php_codesniffer": "^2.0",
+        "yiisoft/yii2-coding-standards": "^2.0",
+        "friendsofphp/php-cs-fixer": "^2.8",
+        "phpoffice/phpspreadsheet": "^1.1",
+        "symfony/dotenv": "^3.0"
     },
     "config": {
         "process-timeout": 1800,
@@ -40,6 +49,7 @@
         ],
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject",
+            "[ -f setup.sh ] && ./setup.sh || true",
             "yii\\composer\\Installer::postInstall"
         ]
     },
