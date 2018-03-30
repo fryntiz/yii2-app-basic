@@ -28,6 +28,13 @@ phpunit.phar
 
 tests/_output/*
 tests/_support/_generated
+tests/chromedriver
 
 #vagrant folder
 /.vagrant
+
+# codesniffer cache
+.php_cs.cache
+
+# local environment variables
+.env
