@@ -37,7 +37,7 @@ DIRECTORY STRUCTURE
 REQUIREMENTS
 ------------
 
-The minimum requirement by this project template that your Web server supports PHP 5.4.0.
+The minimum requirement by this project template that your Web server supports PHP 7.0.0.
 
 
 INSTALLATION
@@ -45,17 +45,18 @@ INSTALLATION
 
 ### Install via Composer
 
-If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
+If you do not have [Composer](http://getcomposer.org/), you may install it by
+following the instructions
 at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 
 You can then install this project template using the following command:
 
 ~~~
-php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
+php composer.phar create-project --prefer-dist --stability=dev fryntiz/yii2-app-basic basic
 ~~~
 
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
-directly under the Web root.
+Now you should be able to access the application through the following URL,
+assuming `basic` is the directory directly under the Web root.
 
 ~~~
 http://localhost/basic/web/
@@ -70,7 +71,8 @@ Set cookie validation key in `config/web.php` file to some random secret string:
 
 ```php
 'request' => [
-    // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+    // !!! insert a secret key in the following (if it is empty) - this is
+    required by cookie validation
     'cookieValidationKey' => '<secret random string goes here>',
 ],
 ```
@@ -80,30 +82,6 @@ You can then access the application through the following URL:
 ~~~
 http://localhost/basic/web/
 ~~~
-
-
-### Install with Docker
-
-Update your vendor packages
-
-    docker-compose run --rm php composer update --prefer-dist
-    
-Run the installation triggers (creating cookie validation code)
-
-    docker-compose run --rm php composer install    
-    
-Start the container
-
-    docker-compose up -d
-    
-You can then access the application through the following URL:
-
-    http://127.0.0.1:8000
-
-**NOTES:** 
-- Minimum required Docker engine version `17.04` for development (see [Performance tuning for volume mounts](https://docs.docker.com/docker-for-mac/osxfs-caching/))
-- The default configuration uses a host-volume in your home directory `.docker-composer` for composer caches
-
 
 CONFIGURATION
 -------------
@@ -146,7 +124,7 @@ vendor/bin/codecept run
 
 The command above will execute unit and functional tests. Unit tests are testing the system components, while functional
 tests are for testing user interaction. Acceptance tests are disabled by default as they require additional setup since
-they perform testing in real browser. 
+they perform testing in real browser.
 
 
 ### Running  acceptance tests
@@ -158,7 +136,7 @@ To execute acceptance tests do the following:
 2. Replace `codeception/base` package in `composer.json` with `codeception/codeception` to install full featured
    version of Codeception
 
-3. Update dependencies with Composer 
+3. Update dependencies with Composer
 
     ```
     composer update  
@@ -175,13 +153,13 @@ To execute acceptance tests do the following:
     ```
     # for Firefox
     java -jar -Dwebdriver.gecko.driver=~/geckodriver ~/selenium-server-standalone-3.xx.x.jar
-    
+
     # for Google Chrome
     java -jar -Dwebdriver.chrome.driver=~/chromedriver ~/selenium-server-standalone-3.xx.x.jar
-    ``` 
-    
+    ```
+
     As an alternative way you can use already configured Docker container with older versions of Selenium and Firefox:
-    
+
     ```
     docker run --net=host selenium/standalone-firefox:2.53.0
     ```
