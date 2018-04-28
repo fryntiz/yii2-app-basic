@@ -2,6 +2,7 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$log = require __DIR__ . '/log.php';
 
 $config = [
     'id' => 'basic-console',
@@ -11,29 +12,23 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@tests' => '@app/tests',
     ],
+    'language' => 'es-ES',
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'log' => [
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
+        'log' => $log,
         'db' => $db,
     ],
     'params' => $params,
-    /*
     'controllerMap' => [
         'fixture' => [ // Fixture generation command line.
             'class' => 'yii\faker\FixtureController',
+            'language' => 'es_ES',
         ],
     ],
-    */
 ];
 
 if (YII_ENV_DEV) {
