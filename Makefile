@@ -1,8 +1,8 @@
 .PHONY: all test tests cs codecept pre_codecept post_codecept run_codecept \
 	fastcs fast phpcs docs api doc-src guide guia doc-src install db psql \
-	clean permisos perm p
+	clean permisos perm p requeriments req
 
-all: test
+all: requeriments install db permisos
 
 test tests: codecept phpcs
 
@@ -53,11 +53,14 @@ clean:
 	find 'runtime' -not -path 'runtime' -not -name ".gitignore" -exec rm -Rf {} \; || echo ''
 	find 'web/assets' -not -path 'web/assets' -not -name ".gitignore" -exec rm -Rf {} \; || echo ''
 	find 'web/tmp' -not -path 'web/tmp' -not -name ".gitignore" -exec rm -Rf {} \; || echo ''
-	
+
 permisos perm p:
 	echo 'Aplicando permisos para desarrollo. No usar en producción, son inseguros'
 	sudo chmod -R 770 .
 	sudo chmod -R 777 runtime
 	sudo chmod -R 775 web
 	sudo chmod -R 777 web/assets
-	bash -c 'yo=$(shell whoami) && sudo chown -R ${yo}:www-data .'
+	bash -c 'yo=$(shell whoami) && sudo chown -R $${yo}:www-data . && echo $${yo}'
+
+requeriments req:
+	echo 'Instalando dependencias'
