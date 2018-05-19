@@ -4,6 +4,11 @@
 BASE_DIR="$(dirname $(readlink -f "$0"))"
 PROYECTO_DIR="$BASE_DIR/../.."
 
+## Actualizar requisitos
+generar_requisitos() {
+    php requisitos.php
+}
+
 generar_planteamiento() {
     pandoc -s planteamiento.md requisitos.md -o planteamiento_tmp.adoc
 }
