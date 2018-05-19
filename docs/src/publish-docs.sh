@@ -3,14 +3,16 @@
 
 ## Si no recibe ningún parámetro, renueva toda la documentación
 ## Puede recibir uno de estos dos parámetros opcionales:
-## -a
-## -g
-
+## -a Genera documentación para la API
+## -g Genera documentación para la guía
 
 BASE_DIR="$(dirname $(readlink -f "$0"))"
+PROYECTO_DIR="$BASE_DIR/../.."
+DOCS_DIR="$PROYECTO_DIR/docs"
+SRC_DIR="$DOCS_DIR/src"
 
 api() {
-    vendor/bin/apidoc api .,vendor/yiisoft/yii2 docs/api \
+    vendor/bin/apidoc api .,vendor/yiisoft/yii2 "$DOCS_DIR/api" \
         --pageTitle="API del proyecto" --guide=.. --guidePrefix= \
         --exclude="docs,vendor,tests" --interactive=0 \
         --template="project" \
@@ -18,17 +20,17 @@ api() {
 }
 
 guide() {
-    vendor/bin/apidoc guide 'docs-src' docs \
+    vendor/bin/apidoc guide "$SRC_DIR" "$DOCS_DIR" \
         --pageTitle="Objetivos del proyecto" --guidePrefix= --apiDocs=./api \
         --interactive=0 --template="project"
-    mv docs/README.html docs/index.html
-    ln -sf index.html docs/README.html
-    rm docs/README-api.html
+    mv "$DOCS_DIR/README.html" "$DOCS_DIR/index.html"
+    ln -sf "$SRC_DIR/index.html" "$DOCS_DIR/README.html"
+    rm "$DOCS_DIR/README-api.html"
 }
 
-ACTUAL="$PWD"
+DIR_ACTUAL="$PWD"
 
-cd $BASE_DIR/.. || exit
+cd $DOCS_DIR || exit
 
 if [[ "$1" = '-a' ]]; then
     if [[ -d 'api' ]]; then
@@ -41,18 +43,18 @@ elif [[ "$1" = '-g' ]]; then
         -not -name 'api' \
         -not -name 'src' \
         -not -name 'Planteamiento_Inicial' \
-        -delete
+        -exec rm -Rf {} \;
     guide
 else
     #find docs -not -path 'docs' -not -name ".gitignore" -exec rm -Rf {} \;
     find . -maxdepth 1 \
         -not -name 'src' \
         -not -name 'Planteamiento_Inicial' \
-        -delete
+        -exec rm -Rf {} \;
     api
     guide
 fi
 
-touch 'docs/.nojekyll'
+touch $DOCS_DIR/.nojekyll
 
-cd $ACTUAL || exit
+cd $DIR_ACTUAL || exit
