@@ -31,7 +31,7 @@ elif [[ "$1" = '-g' ]]; then
     find 'docs' -maxdepth 1 -not -name 'api' -delete
     guide
 else
-    find docs -not -path 'docs' -not -name ".gitignore" -exec rm -Rf {} \;
+    #find docs -not -path 'docs' -not -name ".gitignore" -exec rm -Rf {} \;
     api
     guide
 fi

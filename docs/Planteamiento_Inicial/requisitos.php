@@ -5,6 +5,8 @@ if (file_exists('vendor')) {
     require 'vendor/autoload.php';
 } elseif (file_exists('../vendor')) {
     require '../vendor/autoload.php';
+} elseif (file_exists('../../vendor')) {
+    require '../../vendor/autoload.php';
 }
 
 $issues = isset($argv[1]) && $argv[1] === '-i';
