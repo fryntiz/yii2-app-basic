@@ -12,7 +12,7 @@ DOCS_DIR="$PROYECTO_DIR/docs"
 SRC_DIR="$DOCS_DIR/src"
 
 api() {
-    vendor/bin/apidoc api .,vendor/yiisoft/yii2 "$DOCS_DIR/api" \
+    $PROYECTO_DIR/vendor/bin/apidoc api .,vendor/yiisoft/yii2 "$DOCS_DIR/api" \
         --pageTitle="API del proyecto" --guide=.. --guidePrefix= \
         --exclude="docs,vendor,tests" --interactive=0 \
         --template="project" \
@@ -20,7 +20,7 @@ api() {
 }
 
 guide() {
-    vendor/bin/apidoc guide "$SRC_DIR" "$DOCS_DIR" \
+    $PROYECTO_DIR/vendor/bin/apidoc guide "$SRC_DIR" "$DOCS_DIR" \
         --pageTitle="Objetivos del proyecto" --guidePrefix= --apiDocs=./api \
         --interactive=0 --template="project"
     mv "$DOCS_DIR/README.html" "$DOCS_DIR/index.html"
