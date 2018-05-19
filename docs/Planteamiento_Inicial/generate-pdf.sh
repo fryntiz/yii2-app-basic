@@ -16,7 +16,7 @@ generar_planteamiento() {
 ## Reemplazar archivo generado
 reemplazar() {
 
-    echo ":lang: es\n:toc:\n:toc-title: Tabla de contenidos\n:sectnums:\n\n" | cat - pro.adoc > planteamiento_tmp.adoc
+    echo ":lang: es\n:toc:\n:toc-title: Tabla de contenidos\n:sectnums:\n\n" | cat - planteamiento_tmp.adoc > planteamiento.adoc
 
     S[1]='\[cols=">,<",options="header",\]'
     S[2]='\[width="100%",cols=">43%,<57%",options="header",\]'
@@ -24,18 +24,18 @@ reemplazar() {
 
     for p in ${S[*]}
     do
-        sed -i 's/^'$p'$/\[width="100%",cols=">20%,<80%",options="header",\]/' planteamiento_tmp.adoc
+        sed -i 's/^'$p'$/\[width="100%",cols=">20%,<80%",options="header",\]/' planteamiento.adoc
     done
 
-    sed -i 's/^\[width="[2-9].*$/\[cols="<3%,^,^,^,^",options="header",\]/' planteamiento_tmp.adoc
+    sed -i 's/^\[width="[2-9].*$/\[cols="<3%,^,^,^,^",options="header",\]/' planteamiento.adoc
 }
 
 generar_pdf() {
-    asciidoctor-pdf planteamiento_tmp.adoc
+    asciidoctor-pdf planteamiento.adoc
 }
 
 limpiar_tmp() {
-    rm -f pro.adoc planteamiento_tmp.adoc
+    rm -f pro.adoc planteamiento.adoc
 
 }
 
