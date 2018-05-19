@@ -16,6 +16,7 @@ check_ghi() {
 check_vendor() {
     if [[ ! -d vendor ]]; then
         echo 'Error: No hay directorio "vendor" (composer install)'
+        ERROR='true' && return 1
     fi
 
     echo 'vendor .......... Correcto!'
