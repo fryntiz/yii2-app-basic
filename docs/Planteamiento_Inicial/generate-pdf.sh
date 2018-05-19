@@ -35,7 +35,7 @@ generar_pdf() {
 }
 
 limpiar_tmp() {
-    rm -f planteamiento_tmp.adoc.adoc planteamiento.adoc
+    rm -f planteamiento_tmp.adoc planteamiento.adoc
 
 }
 
