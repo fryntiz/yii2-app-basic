@@ -1,6 +1,6 @@
 % Frase corta describiendo "Nombre del proyecto"
 % Raúl Caro Pastorino
-% Licencia: GPLv3
+% Licencia GPLv3
 
 # Descripción general del proyecto
 
