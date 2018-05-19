@@ -1,6 +1,6 @@
 .PHONY: all check req requisitos propuesta install milestones tag tags pdf
 
-all: install req propuesta milestones tags check pdf
+all: install propuesta milestones tags check pdf
 
 install:
 	./install-required.sh
