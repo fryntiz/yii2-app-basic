@@ -31,7 +31,7 @@ reemplazar() {
 }
 
 generar_pdf() {
-    asciidoctor-pdf planteamiento.adoc
+    asciidoctor-pdf planteamiento.adocW
 }
 
 limpiar_tmp() {
