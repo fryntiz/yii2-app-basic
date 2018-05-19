@@ -17,5 +17,6 @@ tag tags:
 pdf:
 	./generate-pdf.sh
 
+## Sube los requisitos a GitHub
 req requisitos:
 	php requisitos.php -i

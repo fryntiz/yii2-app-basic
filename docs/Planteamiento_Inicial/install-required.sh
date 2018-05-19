@@ -10,7 +10,7 @@ instalar_vendor() {
 }
 
 instalar_python() {
-    sudo apt install -f python3 pip3
+    sudo apt install -f python3 python3-pip
 }
 
 instalar_php() {
