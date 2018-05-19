@@ -41,6 +41,8 @@ if [[ "$1" = '-a' ]]; then
     api
 elif [[ "$1" = '-g' ]]; then
     find . -maxdepth 1 \
+        -not -name '.' \
+        -not -name '..' \
         -not -name 'api' \
         -not -name 'src' \
         -not -name 'Planteamiento_Inicial' \
@@ -49,6 +51,8 @@ elif [[ "$1" = '-g' ]]; then
 else
     #find docs -not -path 'docs' -not -name ".gitignore" -exec rm -Rf {} \;
     find . -maxdepth 1 \
+        -not -name '.' \
+        -not -name '..' \
         -not -name 'src' \
         -not -name 'Planteamiento_Inicial' \
         -exec rm -Rf {} \;
