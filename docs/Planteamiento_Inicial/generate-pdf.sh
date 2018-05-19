@@ -35,14 +35,12 @@ generar_pdf() {
 }
 
 limpiar_tmp() {
-    rm -f pro.adoc planteamiento.adoc
+    rm -f planteamiento_tmp.adoc.adoc planteamiento.adoc
 
 }
 
-#generate_pdf(){
+generar_requisitos
 generar_planteamiento
 reemplazar
 generar_pdf
 limpiar_tmp
-
-#}
