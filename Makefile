@@ -27,13 +27,13 @@ phpcs cs:
 	vendor/bin/phpcs
 
 docs:
-	docs-src/publish-docs.sh
+	docs/src/publish-docs.sh
 
 api:
-	docs-src/publish-docs.sh -a
+	docs/src/publish-docs.sh -a
 
 guide guia:
-	docs-src/publish-docs.sh -g
+	docs/src/publish-docs.sh -g
 
 serve:
 	@[ -f .env ] && export $$(cat .env) ; ./yii serve
