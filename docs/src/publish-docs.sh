@@ -24,8 +24,8 @@ guide() {
     $PROYECTO_DIR/vendor/bin/apidoc guide "$SRC_DIR" "$DOCS_DIR" \
         --pageTitle="Objetivos del proyecto" --guidePrefix= --apiDocs=./api \
         --interactive=0 --template="project"
-    mv "$DOCS_DIR/README.html" "$DOCS_DIR/index.html"
-    ln -sf "src/index.html" "src/README.html"
+    mv "README.html" "index.html"
+    ln -sf "src/index.html" "README.html"
     rm "$DOCS_DIR/README-api.html"
 }
 
