@@ -25,7 +25,7 @@ guide() {
         --pageTitle="Objetivos del proyecto" --guidePrefix= --apiDocs=./api \
         --interactive=0 --template="project"
     mv "$DOCS_DIR/README.html" "$DOCS_DIR/index.html"
-    ln -sf "$SRC_DIR/index.html" "$DOCS_DIR/README.html"
+    ln -sf "src/index.html" "src/README.html"
     rm "$DOCS_DIR/README-api.html"
 }
 
