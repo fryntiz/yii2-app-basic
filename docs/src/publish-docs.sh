@@ -46,6 +46,7 @@ elif [[ "$1" = '-g' ]]; then
         -not -name 'api' \
         -not -name 'src' \
         -not -name 'Planteamiento_Inicial' \
+        -not -name '.gitignore' \
         -exec rm -Rf {} \;
     guide
 else
@@ -55,6 +56,7 @@ else
         -not -name '..' \
         -not -name 'src' \
         -not -name 'Planteamiento_Inicial' \
+        -not -name '.gitignore' \
         -exec rm -Rf {} \;
     api
     guide
