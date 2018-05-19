@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # -*- ENCODING: UTF-8 -*-
 
+## Si no recibe ningún parámetro, renueva toda la documentación
+## Puede recibir uno de estos dos parámetros opcionales:
+## -a
+## -g
+
+
 BASE_DIR="$(dirname $(readlink -f "$0"))"
 
 api() {
@@ -25,13 +31,24 @@ ACTUAL="$PWD"
 cd $BASE_DIR/.. || exit
 
 if [[ "$1" = '-a' ]]; then
-    rm -rf 'docs/api'
+    if [[ -d 'api' ]]; then
+        rm -rf 'api'
+    fi
+
     api
 elif [[ "$1" = '-g' ]]; then
-    find 'docs' -maxdepth 1 -not -name 'api' -delete
+    find . -maxdepth 1 \
+        -not -name 'api' \
+        -not -name 'src' \
+        -not -name 'Planteamiento_Inicial' \
+        -delete
     guide
 else
     #find docs -not -path 'docs' -not -name ".gitignore" -exec rm -Rf {} \;
+    find . -maxdepth 1 \
+        -not -name 'src' \
+        -not -name 'Planteamiento_Inicial' \
+        -delete
     api
     guide
 fi
