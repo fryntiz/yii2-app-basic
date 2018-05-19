@@ -1,15 +1,10 @@
-#!/bin/sh
-
-VER="2.0.5"
-FILE="pandoc-$VER-1-amd64.deb"
+#!/usr/bin/env bash
+# -*- ENCODING: UTF-8 -*-
 
 if ! dpkg -s pandoc > /dev/null 2>&1
 then
-    echo "Descargando e instalando Pandoc $VER..."
-    wget -q "https://github.com/jgm/pandoc/releases/download/$VER/$FILE"
-    sudo dpkg -i $FILE
-    rm -f $FILE
-    sudo apt -f install
+    echo "Instalando Pandoc $VER..."
+    sudo apt install -y pandoc
 fi
 
 LISTA=$(gem list --local)
