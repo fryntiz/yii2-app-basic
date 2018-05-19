@@ -75,27 +75,27 @@ for ($row = 2; $row <= $highestRow; $row++) {
             $entregaGhi = mb_substr($entrega, 1, 1);
             $comando = "ghi open -m \"$mensaje\" --claim";
             if (!empty($prioridadGhi) && in_array($prioridadGhi, [
-                    'mínimo',
-                    'importante',
-                    'opcional'
+                    'minimum',
+                    'important',
+                    'optional'
                 ]))
             {
                 $comando .= " -L $prioridadGhi";
             }
 
             if (!empty($tipoGhi) && in_array($tipoGhi, [
-                    'funcional',
-                    'técnico',
-                    'información'
+                    'query',
+                    'suggestion',
+                    'feature'
                 ]))
             {
                 $comando .= " -L $tipoGhi";
             }
 
             if (!empty($complejidadGhi) && in_array($complejidadGhi, [
-                    'fácil',
-                    'media',
-                    'difícil'
+                    'easy',
+                    'medium',
+                    'difficult'
                 ]))
             {
                 $comando .= " -L $complejidadGhi";
