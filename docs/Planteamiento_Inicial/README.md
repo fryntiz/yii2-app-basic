@@ -1,67 +1,49 @@
-Proyecto integrado
-==================
+# Instrucciones para comenzar proyecto
 
-Este es el documento principal, que incluye la portada  y el índice de contenidos.
+Este apartado facilita la planificación inicial de un proyecto al proporcionar 
+una estructura sencilla, preconstruida y autodesplegable en el control de 
+versiones github.
 
-Descripción general
--------------------
+## Instalar dependencias
 
-* [Descripción general](../src/descripcion.md)
+Primero resolver dependencias:
 
-  * [Funcionalidad principal de la aplicación](../src/descripcion.md#funcionalidad-principal-de-la-aplicacion)
-  * [Objetivos generales](../src/descripcion.md#objetivos-generales)
-  * [URL del repositorio](../src/descripcion.md#url-del-repositorio)
-  * [URL de la documentación](../src/descripcion.md#url-de-la-documentacion)
+```bash
+    make install
+```
 
-Instrucciones de instalación y despliegue
------------------------------------------
+Esta orden anterior nos resolverá todas las dependencias
 
-* [Instrucciones de instalación y despliegue](../src/instalacion.md)
+## Crear Hitos en GitHub
 
-  * [En local](../src/instalacion.md#en-local)
-  * [En la nube](../src/instalacion.md#en-la-nube)
+→→→→ Aún no se crean los hitos, solo se comprueban
 
-Catálogo de requisitos
-----------------------
+```bash
+    make milestones
+```
 
-* [Catálogo de requisitos](requisitos.md)
+## Crear etiquetas en GitHub
 
-  * [Cuadro resumen](requisitos.md#cuadro-resumen)
+Crea en el repositorio asociado (tiene que estar asociado) en GitHub una lista
+de etiquetas para marcar.
 
-Manual de usuario
------------------
+```bash
+    make tags
+```
 
-* [Manual de usuario](../src/manual.md)
+## Comprobar dependencias
 
-Decisiones adoptadas
---------------------
+Comprueba que se han resuelto todas las dependencias que son necesarias para
+llevar a cabo las operaciones.
 
-* [Decisiones adoptadas](../src/decisiones.md)
+```bash
+    make check
+```
 
-Dificultades encontradas
-------------------------
+## Crear PDF con la propuesta y requisitos
 
-* [Dificultades encontradas](../src/dificultades.md)
+Este comando genera un pdf con la propuesta y con cada uno de los requisitos
 
-Diagramas
----------
-
-* [Diagramas](../src/diagramas.md)
-
-  * [Diagramas de clases](../src/diagramas.md#diagramas-de-clases)
-  * [Diagramas de estructura lógica de datos](../src/diagramas.md#diagramas-de-estructura-logica-de-datos)
-
-Glosario de términos
---------------------
-
-* [Glosario de términos](../src/glosario.md)
-
-Conclusiones
-------------
-
-* [Conclusiones](../src/conclusiones.md)
-
-Anexos
-------
-
-* [Anexos](../src/anexos.md)
+```bash
+    make pdf
+```
