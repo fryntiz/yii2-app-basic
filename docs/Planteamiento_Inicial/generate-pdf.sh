@@ -39,7 +39,10 @@ limpiar_tmp() {
 
 }
 
+#generate_pdf(){
 generar_planteamiento
 reemplazar
 generar_pdf
 limpiar_tmp
+
+#}

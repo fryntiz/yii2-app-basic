@@ -37,7 +37,7 @@ $resumen = "\n## Cuadro resumen\n\n"
          . '| :------------ | :-----------: | :------: | :-------------: | :---------: |'
          . ($issues ? " :------------: |" : '') . "\n";
 
-$salida = `ghi`;
+$salida = shell_exec('ghi');
 $matches = [];
 
 if ($issues) {
@@ -51,8 +51,8 @@ if ($issues) {
 
 for ($row = 2; $row <= $highestRow; $row++) {
     if (($row - 1) % 10 === 0) {
-        echo "Deteniendo la ejecución por 10 segundos para evitar exceso de tasa...";
-        sleep(10);
+        echo "Deteniendo la ejecución por 11 segundos para evitar exceso de tasa...";
+        sleep(11);
         echo "\n";
     }
     echo '(' . ($row - 1) . '/' . ($highestRow - 1) . ') ';
@@ -74,24 +74,39 @@ for ($row = 2; $row <= $highestRow; $row++) {
             $complejidadGhi = mb_strtolower($complejidad);
             $entregaGhi = mb_substr($entrega, 1, 1);
             $comando = "ghi open -m \"$mensaje\" --claim";
-            if (!empty($prioridadGhi)
-                && in_array($prioridadGhi, ['mínimo', 'importante', 'opcional'])) {
+            if (!empty($prioridadGhi) && in_array($prioridadGhi, [
+                    'mínimo',
+                    'importante',
+                    'opcional'
+                ]))
+            {
                 $comando .= " -L $prioridadGhi";
             }
-            if (!empty($tipoGhi)
-                && in_array($tipoGhi, ['funcional', 'técnico', 'información'])) {
+
+            if (!empty($tipoGhi) && in_array($tipoGhi, [
+                    'funcional',
+                    'técnico',
+                    'información'
+                ]))
+            {
                 $comando .= " -L $tipoGhi";
             }
-            if (!empty($complejidadGhi)
-                && in_array($complejidadGhi, ['fácil', 'media', 'difícil'])) {
+
+            if (!empty($complejidadGhi) && in_array($complejidadGhi, [
+                    'fácil',
+                    'media',
+                    'difícil'
+                ]))
+            {
                 $comando .= " -L $complejidadGhi";
             }
-            if (!empty($entregaGhi)
-                && in_array($entregaGhi, ['1', '2', '3'])) {
+
+            if (!empty($entregaGhi) && in_array($entregaGhi, ['1', '2', '3'])) {
                 $comando .= " -M $entregaGhi";
             }
+
             echo "Generando incidencia para $codigo en GitHub...";
-            $salida = `$comando`;
+            $salida = shell_exec($comando);
             $matches = [];
             if (preg_match('/^#([0-9]+):/', $salida, $matches) === 1) {
                 $incidencia = $matches[1];

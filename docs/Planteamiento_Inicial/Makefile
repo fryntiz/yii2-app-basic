@@ -1,23 +1,21 @@
-.PHONY: all check req propuesta install milestones tags pdf
+.PHONY: all check req requisitos propuesta install milestones tag tags pdf
 
-all: check req propuesta
+all: install check req propuesta
+
+install:
+    ./install-required.sh
 
 check:
-	./check-required.sh && \
-	./.sh
-	./.sh
+	./check-required.sh
 
 milestones:
 	./generate-milestones.sh
 
-tags:
+tag tags:
 	./generate-tags.sh
 
 pdf:
 	./generate-pdf.sh
 
-req:
+req requisitos:
 	php requisitos.php -i
-
-install:
-    ./install-required.sh
