@@ -4,7 +4,7 @@
 DIR="$(basename $(realpath .))"
 
 sed -i s/plantilla/$DIR/g db/* config/* apache.conf codeception.yml \
-    CITATION.txt README.md
+    CITATION.txt README.md LICENSE
 
 mv 'apache.conf' "$DIR.conf"
 mv 'db/plantilla.sql' "db/$DIR.sql"
