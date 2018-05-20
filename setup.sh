@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # -*- ENCODING: UTF-8 -*-
 
-DIR="$(basename $(realpath .))"
+DIR="$(basename "$(realpath .)")"
+
+echo $DIR
 
 #PROYECT_NAME="$(echo $DIR | tr '[:upper:]' '[:lower:]' | tr '[\-\.\ \@]' '_'
 # | tr 'ñ' 'n')"
