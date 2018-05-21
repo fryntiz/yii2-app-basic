@@ -42,7 +42,11 @@ install:
 	composer install
 	composer run-script post-create-project-cmd
 
+
 db:
+	db/load.sh
+
+dbfull:
 	db/create.sh
 	db/load.sh
 
