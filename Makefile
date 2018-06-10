@@ -64,7 +64,7 @@ permisos perm p:
 	sudo chmod -R 777 runtime
 	sudo chmod -R 775 web
 	sudo chmod -R 777 web/assets
-	bash -c 'yo=$(shell whoami) && sudo chown -R $${yo}:www-data . && echo $${yo}'
+	bash -c 'yo=$(shell whoami) && sudo chown -R $${yo}:www-data .'
 
 requeriments req:
 	echo 'Instalando dependencias'
