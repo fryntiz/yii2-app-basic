@@ -18,8 +18,15 @@ Thumbs.db
 # composer itself is not needed
 composer.phar
 
+# Módulos de NodeJS con npm
+/node_modules
+
 # Mac DS_Store Files
 .DS_Store
+
+# Papelera de Linux
+.trash
+.Trash
 
 # phpunit itself is not needed
 phpunit.phar
@@ -39,5 +46,5 @@ tests/chromedriver
 # local environment variables
 .env
 
-
+# Atom editor archivos de proyectos
 /.ropeproject
