@@ -5,9 +5,8 @@ DIR="$(basename "$(realpath .)")"
 
 echo $DIR
 
-#PROYECT_NAME="$(echo $DIR | tr '[:upper:]' '[:lower:]' | tr '[\-\.\ \@]' '_'
-# | tr 'ñ' 'n')"
-PROYECT_NAME="$(echo $DIR | tr '[:upper:]' '[:lower:]' \
+PROYECT_NAME="$(echo $DIR | tr -d ' ' \
+                          | tr '[:upper:]' '[:lower:]' \
                           | tr 'ñ' 'n' \
                           | tr -cs '[:alnum:]' '_')"
 
