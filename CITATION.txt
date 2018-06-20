@@ -3,7 +3,7 @@ below:
 
 @Misc{,
   author       = {Raúl caro pastorino},
-  organization = {toblerity.org},
+  organization = {http://fryntiz.es},
   title        = {plantilla: descripción},
   year         = {2018},
   url          = "https://github.com/fryntiz/plantilla"

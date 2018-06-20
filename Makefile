@@ -1,6 +1,6 @@
 .PHONY: all test tests cs codecept pre_codecept post_codecept run_codecept \
 	fastcs fast phpcs docs api doc-src guide guia doc-src install db psql \
-	clean permisos perm p requeriments req
+	clean permisos perm p requeriments req dbfull dbh dbheroku
 
 all: requeriments install db permisos
 
@@ -43,8 +43,15 @@ install:
 	composer run-script post-create-project-cmd
 
 db:
+	db/load.sh
+
+dbfull:
 	db/create.sh
 	db/load.sh
+
+dbh dbheroku:
+	heroku psql < db/plantilla.sql
+	heroku psql < db/plantilla_datos.sql
 
 psql:
 	db/psql.sh
@@ -60,7 +67,7 @@ permisos perm p:
 	sudo chmod -R 777 runtime
 	sudo chmod -R 775 web
 	sudo chmod -R 777 web/assets
-	bash -c 'yo=$(shell whoami) && sudo chown -R $${yo}:www-data . && echo $${yo}'
+	bash -c 'yo=$(shell whoami) && sudo chown -R $${yo}:www-data .'
 
 requeriments req:
 	echo 'Instalando dependencias'
