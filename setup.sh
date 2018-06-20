@@ -7,9 +7,11 @@ echo $DIR
 
 PROYECT_NAME="$(echo $DIR | tr -d ' ' \
                           | tr '[:upper:]' '[:lower:]' \
+                          | tr '-' '_' \
+                          | tr '.' '_' \
                           | tr 'ñ' 'n' \
-                          | tr -cs '[:alnum:]' '_')"
-
+                          #| tr -cs '[:alnum:]' '_') \
+)"
 sed -i s/plantilla/$PROYECT_NAME/g db/* config/* apache.conf codeception.yml \
     Makefile CITATION.txt README.md LICENSE
 
